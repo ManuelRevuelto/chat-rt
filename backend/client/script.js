@@ -26,15 +26,17 @@ const input = document.getElementById("input");
 const messages = document.getElementById("messages");
 
 socket.on("chat message", (msg, serverOffset, username) => {
-    const item = `
-        <li>
-            <p>${msg}</p>
-            <small>${username}</small>
-        </li>`;
-    messages.insertAdjacentHTML("beforeend", item);
-    socket.auth.serverOffset = serverOffset;
-    // scroll to bottom of messages
-    messages.scrollTop = messages.scrollHeight
+    if (socket.auth.serverOffset < serverOffset) {
+        socket.auth.serverOffset = serverOffset;
+        const item = `
+            <li>
+                <p>${msg}</p>
+                <small>${username}</small>
+            </li>`;
+        messages.insertAdjacentHTML("beforeend", item);
+        // scroll to bottom of messages
+        messages.scrollTop = messages.scrollHeight
+    }
 })
 form.addEventListener("submit", (e) => {
     e.preventDefault();
