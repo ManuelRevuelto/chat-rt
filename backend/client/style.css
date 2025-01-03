@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    padding: 36px;
+    grid-template-rows: 1fr;
+    background-color: rgb(36, 36, 36);
+}
+
+#chat {
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    width: 350px;
+    height: 100%;
+    position: relative;
+}
+
+#form {
+    bottom: 0;
+    display: flex;
+    height: 48px;
+    left: 0;
+    padding: 4px;
+    position: absolute;
+    right: 0;
+}
+
+#input {
+    border-radius: 9999px;
+    border: 1px solid #eee;
+    flex: 1;
+    margin: 4px;
+    padding: 0 8px;
+}
+
+#input:focus {
+    outline: 0;
+}
+
+#form>button {
+    background: #09f;
+    color: #fff;
+    border: 0;
+    margin: 4px;
+    border-radius: 4px;
+}
+
+#form>button:hover {
+    background: #0cf;
+
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    height: 100%;
+    scroll-behavior: smooth;
+    padding-bottom: 48px;
+}
+
+#messages>li {
+    padding: .5rem 1rem;
+}
+
+#messages>li:nth-child(odd) {
+    background: #d5d5d5;
+}
