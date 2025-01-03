@@ -61,7 +61,6 @@ io.on('connection', (socket) => {
     });
 
     if(!socket.recovered) {
-        socket.recovered = true;
         const sql = "SELECT id, content, user FROM messages where id > ?";
         const params = [socket.handshake.auth.serverOffset ?? 0];
 
